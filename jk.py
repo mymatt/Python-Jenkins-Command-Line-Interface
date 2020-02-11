@@ -16,7 +16,15 @@ jenkins_url = 'http://jenkins.com'
 @click.option('--user', default=jenkins_user, help='Jenkins User')
 @click.option('--pass', default=jenkins_pass, help='Jenkins Pass')
 def cli(url, user, pass):
-
     global jkm
-
     jkm = jenkinsmanager(url, user, pass)
+
+
+@cli.command('version')
+def version():
+    """Get Jenkins Version."""
+    jkm.get_version()
+
+
+if __name__ == '__main__':
+    cli()
