@@ -49,10 +49,10 @@ class jenkinsmanager:
     def lastBuildStatus(self,jobname):
         last_build = self.server_instance().get_job_info(jobname)['lastBuild']['number']
         build_status = self.server_instance().get_build_info(jobname, last_build)['building']
-        return build_status
+        print("Last Build Status: {}".format(build_status))
 
 
     def lastBuildResult(self,jobname):
         last_build = self.server_instance().get_job_info(jobname)['lastBuild']['number']
         build_result = self.server_instance()).get_build_info(jobname, last_build)['result']
-        return build_result
+        print("Last Build Result: {}".format(build_result))
